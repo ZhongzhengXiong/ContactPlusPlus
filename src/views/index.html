@@ -2,19 +2,54 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>ContactPlusPlus</title>
   </head>
   <body>
-    <h1 >Hello World!</h1>
-    <button id="new-window" value="new window">
-      new window
+    <h1 >ContactPlusPlus</h1>
+
+    <div>
+      <label>name: </label>
+      <input id="name">
+      <br>
+    
+      <label>phone: </label>
+      <input id="phone">
+      <br>
+
+      <label>email: </label>
+      <input id="email">
+      <br>
+
+      <label>tag: </label>
+      <input id="tag">
+      <br>
+    </div>
+    
+    <br>
+
+    <button id="add-contact" value="add contact">
+      add contact
     </button>
+    <button id="delete-contact" value="delete contact">
+      del contact
+    </button>
+    <button id="update-contact" value="update contact">
+      update contact
+    </button>
+    <button id="sync-contact" value="synchronize contact">
+      synchronize contact
+    </button>
+    <br>
+
+    <div id="contact-area">
+      
+    </div>
+    
     <br>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
-
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
