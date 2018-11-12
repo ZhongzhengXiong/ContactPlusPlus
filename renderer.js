@@ -7,10 +7,13 @@ const path = require('path')
 const newWindowBtn = document.getElementById('new-window')
 
 newWindowBtn.addEventListener('click', event=>{
-    const modalPath = path.join('modal.html')
+    const modalPath = path.resolve('modal.html')
+    
     let win = new BrowserWindow({width: 400, height: 320})
 
     win.on('close', ()=>{win = null})
-    win.loadURL(modalPath)
+    win.loadFile('modal.html')
+    win.webContents.openDevTools()
+    console.log(modalPath.toString)
     win.show()
 })
