@@ -1,18 +1,6 @@
-# electron-quick-start
+# ContactPlusPlus
 
-**Clone and run for a quick way to see Electron in action.**
-
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
-
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
-
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+This is a brand new contact application incorporating not only basic contact functionality but also many more wonderful social features. It's built on [Electron](https://electronjs.org/)
 
 ## To Use
 
@@ -20,9 +8,9 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone git@github.com:ZhongzhengXiong/ContactPlusPlus.git
 # Go into the repository
-cd electron-quick-start
+cd ContactPlusPlus
 # Install dependencies
 npm install
 # Run the app
