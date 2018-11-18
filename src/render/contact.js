@@ -1,4 +1,4 @@
-// This file is required by the index.html file and will
+// This file will be embedded by the index.html file and will
 // be executed in the renderer process for that window.
 // All contact related funtionality will be implemented 
 // in this file.
@@ -27,6 +27,11 @@ contact = {
 }
 */
 
+
+// since it's embedded in the html page, the it has the same file position 
+// with the index html page. so when importing your own module by relative 
+// path, you should use the path of the module relative to index.html file
+// (which locates in "src/render/views/index.html") rather that this file.
 import db from '../../dist/render/database/db_contact.js'
 import Fuse from 'fuse'
 import _ from 'lodash'
@@ -125,41 +130,34 @@ function fetchAllContacts() {
 }
 
 function fetchPageContacts(page_no, page_num) {
-
+// to-do
 }
 
 function fetchPageContactsList() {
-
+// to-do
 }
-
 
 function showContactList(contact_list) {
     let str = ''
     for (let i = 0; i < contact_list.length; i++) {
-        let contact = contact_list[i];
+        let contact = contact_list[i]
         str += '<tr id=' + contact._id + '>'
         str += '<td>' + contact.first-name + '</td>'
         str += '<td>' + contact.last-name + '</td>'
         str += '<td>' + contact.tel + '</td>'
         str += '<td>' + contact.email + '</td>'
         str += `<td><button onclick=showDetail(${contact._id})>  查看  </button> <button onclick=deleteContact(${contact._id})>  删除   </button></td>`;
-        str += '</tr>'; //拼接str
+        str += '</tr>'
     }
-    $("#contact-list").empty(); //清空子元素
-    $("#contact-list").append(str); //添加元素
+    $("#contact-list").empty(); 
+    $("#contact-list").append(str); 
 }
 
 
 
 // add event listener, only for test
-const page_num = 10
-let cur_page
-
-
-
 $('#add-contact').click(event => {
     // get the input value
-    
     const contactForm = document.getElementById('contact-info-form')
     let contactObject = createContactObject(contactForm)
     console.log('add contact')
