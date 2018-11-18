@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>ContactPlusPlus</title>
@@ -66,25 +65,26 @@
 
   <input type="text" id="searchTextbox" placeholder="Search Contact">
   <div id="contact-area">
-      <table id="contact-list">
-          <tr>
-            <th>ID</th>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th>Detail</th>
-          </tr>    
-      </table>
+    <table id="contact-list">
+      <tr>
+        <th>ID</th>
+        <th>Avatar</th>
+        <th>Name</th>
+        <th>Detail</th>
+      </tr>
+    </table>
   </div>
-  <div >
+  <div>
     <button id="next-page">next page</button>
     <button id="last-page">last page</button>
   </div>
-  
-  
+
+
   <br>
-  <!-- <script src="../render/database/db_settings.js"></script> -->
-  <script src="../lib/jquery.min.js"></script>
-  <script src="../render/contact.js">
-  </script>
+  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script src="../lib/jquery.min.js" type="text/javascript"></script>
+  <script src="../../dist/render/contact.js" type="text/javascript"></script>
+  <script>if (window.module) module = window.module;</script>
 </body>
+
 </html>

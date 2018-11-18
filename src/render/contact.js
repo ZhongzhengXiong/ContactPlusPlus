@@ -27,13 +27,9 @@ contact = {
 }
 */
 
-
-
-
-
-const db = require('../render/database/db_contact.js')
-const Fuse = require('fuse.js')
-const _ = require('ladash')
+import db from '../../dist/render/database/db_contact.js'
+import Fuse from 'fuse'
+import _ from 'lodash'
 
 const filters = {
     search: (contacts, search) => contacts.filter(contact => contact.name.match(search)),
@@ -158,25 +154,18 @@ function showContactList(contact_list) {
 // add event listener, only for test
 const page_num = 10
 let cur_page
-const addButton = document.getElementById('#add-contact')
-// const delButton = document.getElementsByClassName('#delete-contact')
-const updateButton = document.getElementsByClassName('#update-contact')
-const syncButton = document.getElementById('#sync-contact')
-addButton.click(event => {
+
+
+
+$('#add-contact').click(event => {
     // get the input value
-    const contactForm = document.getElementById('#contact-info-form')
+    
+    const contactForm = document.getElementById('contact-info-form')
     let contactObject = createContactObject(contactForm)
+    console.log('add contact')
+    console.log(contactObject)
     addContact(contactObject)
+
     let contact_list = fetchAllContacts()
     showContactList(contact_list)
 })
-
-// updateButton.click(event => {
-
-// })
-// syncButton.click(event => {
-//     // sync with remote account 
-//     // update local database
-//     // show contact list
-// })
-

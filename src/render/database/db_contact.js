@@ -1,5 +1,5 @@
-const DB = require('./db_settings')
-// import { callbackify } from 'util';
+import DB from './db_settings'
+import { callbackify } from 'util';
 
 const db = new DB()
 const connect = db.init()
@@ -8,7 +8,7 @@ const contacts = db.contacts
 export default{
     
     addContact(data, cb){
-        return contacts.instert(data, (err, docs) => {
+        return contacts.insert(data, (err, docs) => {
             if(err){}
             return cb(docs)
         })
