@@ -1,10 +1,9 @@
-import DB from './db_settings'
-import { callbackify } from 'util';
+const DB = require('./db_settings')
+// import { callbackify } from 'util';
 
 const db = new DB()
 const connect = db.init()
 const contacts = db.contacts
-
 
 export default{
     
@@ -32,10 +31,11 @@ export default{
             }
         }))
     },
-    findContacy(id, cb){
+    findContact(id, cb){
         return contacts.find({_id: id}, (err, doc)=>{
             if(err){}
             return cb(doc)
         })
-    }
+    },
+    
 }

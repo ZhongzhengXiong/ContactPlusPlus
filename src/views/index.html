@@ -1,58 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>ContactPlusPlus</title>
-  </head>
-  <body>
-    <h1 >ContactPlusPlus</h1>
 
-    <div>
-      <label>name: </label>
-      <input id="name">
-      <br>
-    
-      <label>phone: </label>
-      <input id="phone">
-      <br>
+<head>
+  <meta charset="UTF-8">
+  <title>ContactPlusPlus</title>
+</head>
 
-      <label>email: </label>
-      <input id="email">
-      <br>
+<body>
+  <h1>ContactPlusPlus</h1>
+  <div class="container">
+    <form id="contact-info-form" enctype="application/json">
 
-      <label>tag: </label>
-      <input id="tag">
-      <br>
-    </div>
-    
-    <br>
+      <label>* Necessary Info</label><br>
+      ------<br>
+      <label>first name: </label><br>
+      <input name="first-name" id="first-name" placeholder="first name"><br>
+      <label>last name: </label><br>
+      <input name="last-name" id="last-name" placeholder="last name"><br>
+      <label>phone: </label><br>
+      <input name="phone" id="phone"><br>
+      <label>email: </label><br>
+      <input name="email" id="email" type="email"><br>
 
-    <button id="add-contact" value="add contact">
-      add contact
-    </button>
-    <button id="delete-contact" value="delete contact">
-      del contact
-    </button>
-    <button id="update-contact" value="update contact">
-      update contact
-    </button>
-    <button id="sync-contact" value="synchronize contact">
-      synchronize contact
-    </button>
-    <br>
+      <label>Unnecessary Info</label><br>
+      -------<br>
+      <label>tag: </label><br>
+      <input name="tag" id="tag"><br>
+      <label>address: </label><br>
+      <input name="address" id="address"><br>
+      <label>birthday: </label><br>
+      <input name="birthday" id="birthday" type="date"><br>
+      <label>country: </label><br>
+      <input name="country" id="country"><br>
 
-    <div id="contact-area">
-      
-    </div>
-      <input type="text"  id="searchTextbox" placeholder="Search Contact">
-    <br>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-  </body>
+      <label>gender: </label><br>
+      <input name="sex" id="male" type="radio" checked value="male">male<br>
+      <input name="sex" id="female" type="radio" value="female">female<br>
+      <input name="sex" id="other-gender" type="radio" value="other">other<br>
+
+      <label>social account</label><br>
+      ---<br>
+      <label>twitter:</label><br>
+      <input name="twitter" id="twitter" class="social-account"><br>
+      <label>weibo:</label><br>
+      <input name="weibo" id="weibo" class="social-account"><br>
+
+      <label>IM account</label><br>
+      ---<br>
+      <label>qq:</label><br>
+      <input name="qq" id="qq" class="im-account">
+      <button id='add-contact' onclick="creatContactObject">add contact</button>
+    </form>
+  </div>
+
+  <button id="delete-contact" value="delete contact">
+    del contact
+  </button>
+  <button id="update-contact" value="update contact">
+    update contact
+  </button>
+  <button id="sync-contact" value="synchronize contact">
+    synchronize contact
+  </button>
+  <br>
+
+  <input type="text" id="searchTextbox" placeholder="Search Contact">
+  <div id="contact-area">
+      <table id="contact-list">
+          <tr>
+            <th>ID</th>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Detail</th>
+          </tr>    
+      </table>
+  </div>
+  <div >
+    <button id="next-page">next page</button>
+    <button id="last-page">last page</button>
+  </div>
+  
+  
+  <br>
+  <!-- <script src="../render/database/db_settings.js"></script> -->
+  <script src="../lib/jquery.min.js"></script>
+  <script src="../render/contact.js">
+  </script>
+</body>
 </html>
