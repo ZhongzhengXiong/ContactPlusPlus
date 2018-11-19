@@ -5,9 +5,9 @@
 /*
 contact = { 
     // necessary property
-    'firt-name': 'jessica' // contact's name
-    'last-name': 'white'
-    'tel': '1001023729' // contact's telphone number
+    'firt_name': 'jessica' // contact's name
+    'last_name': 'white'
+    'phone': '1001023729' // contact's telphone number
     'email': 'jessica@gmail.com'
     // unnecessary property
     'tag': 'classmate' // contact' tag (namely as group)
@@ -17,7 +17,7 @@ contact = {
     'gender': 'female'
     'description': 'software engineer of google mountain view'
     'avatar': 'file://user/xiongzhongzheng/.../img/jessica-avatar.jpg
-    'social-account':{
+    'social_account':{
         'twitter': 'jessica@gmail.com'
         'weibo': 'jessica@gmail.com'
     }
@@ -97,8 +97,8 @@ function createContactObject(form) {
 
 function addContact(doc) {
     // add into local database
-    db.addContact(doc, doc => {
-        console.log('add contact', doc)
+    db.addContact(doc, newDoc => {
+        console.log('INFO: successfully saved document: ' + JSON.stringify(newDoc));
     })
     // sync with remote account
 }
@@ -124,33 +124,34 @@ function fetchContactInfo(_id) {
 }
 
 function fetchAllContacts() {
-    return db.fetchAll(docs => {
-        console.log('fetch all docs')
+    db.fetchAll(docs => {
+        console.log(`INFO: successful fetch all contacts: ${JSON.stringify(docs)}`)
+        showContactList(docs)
     })
 }
 
 function fetchPageContacts(page_no, page_num) {
-// to-do
+    // to-do
 }
 
 function fetchPageContactsList() {
-// to-do
+    // to-do
 }
 
 function showContactList(contact_list) {
-    let str = ''
+    let str = '<tr><th>ID</th><th>Avatar</th><th>Name</th><th>Detail</th></tr>'
     for (let i = 0; i < contact_list.length; i++) {
         let contact = contact_list[i]
-        str += '<tr id=' + contact._id + '>'
-        str += '<td>' + contact.first-name + '</td>'
-        str += '<td>' + contact.last-name + '</td>'
-        str += '<td>' + contact.tel + '</td>'
-        str += '<td>' + contact.email + '</td>'
+        str += `<tr id=${contact._id}>`
+        str += `<td>${contact.first_name}</td>`
+        str += `<td>${contact.last_name}</td>`
+        str += `<td>${contact.phone}</td>`
+        str += `<td>${contact.email}</td>`
         str += `<td><button onclick=showDetail(${contact._id})>  查看  </button> <button onclick=deleteContact(${contact._id})>  删除   </button></td>`;
         str += '</tr>'
     }
-    $("#contact-list").empty(); 
-    $("#contact-list").append(str); 
+    $("#contact-list").empty();
+    $("#contact-list").append(str);
 }
 
 
@@ -163,7 +164,7 @@ $('#add-contact').click(event => {
     console.log('add contact')
     console.log(contactObject)
     addContact(contactObject)
-
-    let contact_list = fetchAllContacts()
-    showContactList(contact_list)
+    fetchAllContacts()
+    // let contact_list = fetchAllContacts()
+    // showContactList(contact_list)
 })

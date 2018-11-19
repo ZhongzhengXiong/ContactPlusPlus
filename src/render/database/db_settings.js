@@ -32,8 +32,6 @@ export default class {
           autoload: true
       })
 
-    
-  
       return database
     }
   

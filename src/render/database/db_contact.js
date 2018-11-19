@@ -3,39 +3,43 @@ import { callbackify } from 'util';
 
 const db = new DB()
 const connect = db.init()
-const contacts = db.contacts
+const contacts = connect.contacts
 
-export default{
-    
-    addContact(data, cb){
+export default {
+
+    addContact(data, cb) {
         return contacts.insert(data, (err, docs) => {
-            if(err){}
+            if (err) {
+                console.log('ERROR: adding contact: ' + JSON.stringify(doc) + '. Caused by: ' + error);
+                throw error;
+            }
             return cb(docs)
         })
     },
-    deleteContact(id){
-        contacts.remove({_id:id}, (err, numRemoved) =>{
-            if(err){}
+    deleteContact(id) {
+        contacts.remove({ _id: id }, (err, numRemoved) => {
+            if (err) { }
         })
     },
-    updateContact(id, doc){
-        contacts.update({_id: id}, doc, {},  (err, num)=>{
-            if(err){
+    updateContact(id, doc) {
+        contacts.update({ _id: id }, doc, {}, (err, num) => {
+            if (err) {
             }
         })
     },
-    fetchAll(cb){
-        return contacts.find({}.exec((err, docs)=>{
-            if(err){
-                cb(docs)
+    fetchAll(cb) {
+        contacts.find({}, (err, docs) => {
+            if (err) {
+                console.log("ERROR: cannot execute fetchAll() method")
             }
-        }))
+            cb(docs)
+        })
     },
-    findContact(id, cb){
-        return contacts.find({_id: id}, (err, doc)=>{
-            if(err){}
+    findContact(id, cb) {
+        return contacts.find({ _id: id }, (err, doc) => {
+            if (err) { }
             return cb(doc)
         })
     },
-    
+
 }
