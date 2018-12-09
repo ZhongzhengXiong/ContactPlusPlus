@@ -41,5 +41,37 @@ export default {
             return cb(doc)
         })
     },
+    fetchContactByPage(skip, limit, cb){
+        contacts.find({}).skip(skip).limit(limit).exec((err, docs) =>{
+            if(err){
+                console.log("ERROR: cannot execute fetchContactByPage() method")
+                throw err
+            }
+            cb(docs)
+        })
+    },
+    fetchContactListByPage(skip, limit, cb, sortBy){
+        if(sortBy === 'tag'){
+            contacts.find({}, {first_name: 1, last_name: 1, tag: 1}).sort({tag: 1, first_name:1 , last_name:1}).skip(skip).limit(limit).exec((err, docs)=>{
+                if(err){
+                    console.log("ERROR: cannot execute fetchContactListByPage()")
+                    throw err
+                }
+                cb(docs)
+                })
+        }else{
+            contacts.find({}, {first_name: 1, last_name: 1, tag: 1}).sort({first_name:1 , last_name:1, tag: 1}).skip(skip).limit(limit).exec((err, docs)=>{
+            if(err){
+                console.log("ERROR: cannot execute fetchContactListByPage()")
+                throw err
+            }
+            cb(docs)
+            })
+        }
+        
+    }
+
+    
+    
 
 }

@@ -5,67 +5,65 @@
   <title>ContactPlusPlus</title>
 </head>
 
-<body>
+<body >
   <h1>ContactPlusPlus</h1>
-  <div class="container">
-    <form id="contact-info-form" enctype="application/json">
+  <div >
+    <form id="contact_info_form" >
+      <fieldset id="contact_info_fieldset" disabled>
+      <legend>Contact Info</legend>
+     
+      <legend> Candidate Info</legend>
+      <!-- <label>first name: </label> -->
+      <input name="first_name" id="first_name" placeholder="first name" type="text">
+      <!-- <label>last name: </label> -->
+      <input name="last_name" id="last_name" placeholder="last name" type="text">
+      <!-- <label>phone: </label> -->
+      <input name="phone" id="phone" type="tel" placeholder="phone">
+      <!-- <label>email: </label> -->
+      <input name="email" id="email" type="email" placeholder="email">
 
-      <label>* Necessary Info</label><br>
-      ------<br>
-      <label>first name: </label><br>
-      <input name="first_name" id="first_name" placeholder="first name"><br>
-      <label>last name: </label><br>
-      <input name="last_name" id="last_name" placeholder="last name"><br>
-      <label>phone: </label><br>
-      <input name="phone" id="phone"><br>
-      <label>email: </label><br>
-      <input name="email" id="email" type="email"><br>
-
-      <label>Unnecessary Info</label><br>
-      -------<br>
-      <label>tag: </label><br>
-      <input name="tag" id="tag"><br>
-      <label>address: </label><br>
-      <input name="address" id="address"><br>
-      <label>birthday: </label><br>
-      <input name="birthday" id="birthday" type="date"><br>
-      <label>country: </label><br>
-      <input name="country" id="country"><br>
-
+      <legend> Additional Info</legend>
+      <img alt="Picture" style="width:150px;height:150px;" id="head_portrait" name="head_portrait" src=""><br>
+      <!-- <label>tag: </label> -->
+      <input name="tag" id="tag" type="text" placeholder="tag">
+      <!-- <label>address: </label> -->
+      <input name="address" id="address" type="text" placeholder="address">
+      <!-- <label>birthday: </label> -->
+      <input name="birthday" id="birthday" type="date" placeholder="birthday">
+      <!-- <label>country: </label> -->
+      <input name="country" id="country" type="text" placeholder="country">
+      <br>
       <label>gender: </label><br>
       <input name="sex" id="male" type="radio" checked value="male">male<br>
       <input name="sex" id="female" type="radio" value="female">female<br>
-      <input name="sex" id="other-gender" type="radio" value="other">other<br>
+      <input name="sex" id="other_gender" type="radio" value="other">other<br>
 
-      <label>social account</label><br>
-      ---<br>
-      <label>twitter:</label><br>
-      <input name="twitter" id="twitter" class="social_account"><br>
-      <label>weibo:</label><br>
-      <input name="weibo" id="weibo" class="social_account"><br>
-
-      <label>IM account</label><br>
-      ---<br>
-      <label>qq:</label><br>
-      <input name="qq" id="qq" class="im_account">
+      <!-- social account -->
+      
+      <label>twitter:</label>
+      <input name="twitter" id="twitter" class="social_account" type="text">
+      <label>weibo:</label>
+      <input name="weibo" id="weibo" class="social_account" type="text">
+      
+      <!-- instant messaging account -->
+      <br>
+      <label>qq:</label>
+      <input name="qq" id="qq" class="im_account" type="text">
+    </fieldset>
     </form>
-    <button id='add-contact'>add contact</button>
+    <button id="edit_contact">edit</button>
+    
   </div>
-
-  <button id="delete-contact" value="delete contact">
-    del contact
-  </button>
-  <button id="update-contact" value="update contact">
-    update contact
-  </button>
-  <button id="sync-contact" value="synchronize contact">
+  <br>
+  <button id='add_contact'>add contact</button>
+  <button id="sync_contact" value="synchronize contact">
     synchronize contact
   </button>
   <br>
 
-  <input type="text" id="searchTextbox" placeholder="Search Contact">
-  <div id="contact-area">
-    <table id="contact-list">
+  <!-- <input type="text" id="searchTextbox" placeholder="Search Contact"> -->
+  <div id="contact_area">
+    <table id="contact_list">
       <tr>
         <th>ID</th>
         <th>Avatar</th>
@@ -75,9 +73,10 @@
     </table>
   </div>
   <div>
-    <button id="next-page">next page</button>
-    <button id="last-page">last page</button>
+    <button id="next_page">next page</button>
+    <button id="last_page">last page</button>
   </div>
+  
 
 
   <br>

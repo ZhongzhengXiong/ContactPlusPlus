@@ -3,15 +3,14 @@ import fs from 'fs'
 import DataStore from 'nedb'
 import {remote} from 'electron'
 
-
 export default class {
     constructor () {
       this.db = null
-      this.useDataDir = jetpack.cwd(remote.app.getPath('home'))
+      this.useDataDir = jetpack.cwd(remote.app.getPath('userData'))
     }
   
     createOrReadDatabase (db) {
-      const dirName = process.env.NODE_ENV === 'development' ? '.contact-plus-plus-dev' : '.contact-plus-plus'
+      const dirName = process.env.NODE_ENV === 'development' ? 'database-dev' : 'database'
       const existsDir = jetpack.exists(this.useDataDir.path(dirName))
       if (!existsDir) {
         fs.mkdir(this.useDataDir.path(`${dirName}`), (err) => {
