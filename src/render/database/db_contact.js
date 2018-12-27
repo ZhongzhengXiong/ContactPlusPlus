@@ -5,7 +5,7 @@ const db = new DB()
 const connect = db.init()
 const contacts = connect.contacts
 
-export default {
+export default{
 
     addContact(data, cb) {
         return contacts.insert(data, (err, docs) => {
@@ -36,11 +36,20 @@ export default {
         })
     },
     findContact(id, cb) {
-        return contacts.find({ _id: id }, (err, doc) => {
+        contacts.findOne({ _id: id }, (err, doc) => {
             if (err) { }
             return cb(doc)
         })
     },
+    findConacts(id_list, cb){
+        contacts.find({_id: { $in: id_list }}, (err, docs) => {
+            if(err){
+                console.error("the method findContacts(id_list) failed ")
+                throw err
+            }
+            cb(docs)
+        })
+    },      
     fetchContactByPage(skip, limit, cb){
         contacts.find({}).skip(skip).limit(limit).exec((err, docs) =>{
             if(err){
@@ -69,9 +78,15 @@ export default {
             })
         }
         
+    },
+    removeAll(){
+        contacts.remove({}, { multi: true },  (err, numRemoved) => {
+            if(err)
+                throw err
+            console.log(numRemoved)
+        })
     }
-
-    
     
 
+    
 }

@@ -10,7 +10,7 @@ export default class {
     }
   
     createOrReadDatabase (db) {
-      const dirName = process.env.NODE_ENV === 'development' ? 'database-dev' : 'database'
+      const dirName = process.env.NODE_ENV === 'development' ? 'database-dev' : 'ContactPlusPlus'
       const existsDir = jetpack.exists(this.useDataDir.path(dirName))
       if (!existsDir) {
         fs.mkdir(this.useDataDir.path(`${dirName}`), (err) => {

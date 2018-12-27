@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>ContactPlusPlus</title>
 </head>
 
-<body >
+<body>
   <h1>ContactPlusPlus</h1>
-  <div >
-    <form id="contact_info_form" >
+  <div>
+    <form id="contact_info_form">
       <fieldset id="contact_info_fieldset" disabled>
-      <legend>Contact Info</legend>
-     
-      <legend> Candidate Info</legend>
-      <!-- <label>first name: </label> -->
-      <input name="first_name" id="first_name" placeholder="first name" type="text">
-      <!-- <label>last name: </label> -->
-      <input name="last_name" id="last_name" placeholder="last name" type="text">
-      <!-- <label>phone: </label> -->
-      <input name="phone" id="phone" type="tel" placeholder="phone">
-      <!-- <label>email: </label> -->
-      <input name="email" id="email" type="email" placeholder="email">
+        <legend>Contact Info</legend>
 
-      <legend> Additional Info</legend>
-      <img alt="Picture" style="width:150px;height:150px;" id="head_portrait" name="head_portrait" src=""><br>
-      <!-- <label>tag: </label> -->
-      <input name="tag" id="tag" type="text" placeholder="tag">
-      <!-- <label>address: </label> -->
-      <input name="address" id="address" type="text" placeholder="address">
-      <!-- <label>birthday: </label> -->
-      <input name="birthday" id="birthday" type="date" placeholder="birthday">
-      <!-- <label>country: </label> -->
-      <input name="country" id="country" type="text" placeholder="country">
-      <br>
-      <label>gender: </label><br>
-      <input name="sex" id="male" type="radio" checked value="male">male<br>
-      <input name="sex" id="female" type="radio" value="female">female<br>
-      <input name="sex" id="other_gender" type="radio" value="other">other<br>
+        <legend> Candidate Info</legend>
+        <!-- <label>first name: </label> -->
+        <input name="first_name" id="first_name" placeholder="first name" type="text">
+        <!-- <label>last name: </label> -->
+        <input name="last_name" id="last_name" placeholder="last name" type="text">
+        <!-- <label>phone: </label> -->
+        <input name="phone" id="phone" type="tel" placeholder="phone">
+        <!-- <label>email: </label> -->
+        <input name="email" id="email" type="email" placeholder="email">
 
-      <!-- social account -->
-      
-      <label>twitter:</label>
-      <input name="twitter" id="twitter" class="social_account" type="text">
-      <label>weibo:</label>
-      <input name="weibo" id="weibo" class="social_account" type="text">
-      
-      <!-- instant messaging account -->
-      <br>
-      <label>qq:</label>
-      <input name="qq" id="qq" class="im_account" type="text">
-    </fieldset>
+        <legend> Additional Info</legend>
+        <img alt="Picture" style="width:150px;height:150px;" id="head_portrait" name="head_portrait" src=""><br>
+        <!-- <label>tag: </label> -->
+        <input name="tag" id="tag" type="text" placeholder="tag">
+        <!-- <label>address: </label> -->
+        <input name="address" id="address" type="text" placeholder="address">
+        <!-- <label>birthday: </label> -->
+        <input name="birthday" id="birthday" type="date" placeholder="birthday">
+        <!-- <label>country: </label> -->
+        <input name="country" id="country" type="text" placeholder="country">
+        <br>
+        <label>gender: </label><br>
+        <input name="sex" id="male" type="radio" checked value="male">male<br>
+        <input name="sex" id="female" type="radio" value="female">female<br>
+        <input name="sex" id="other_gender" type="radio" value="other">other<br>
+
+        <!-- social account -->
+
+        <label>twitter:</label>
+        <input name="twitter" id="twitter" class="social_account" type="text">
+        <label>weibo:</label>
+        <input name="weibo" id="weibo" class="social_account" type="text">
+
+        <!-- instant messaging account -->
+        <br>
+        <label>qq:</label>
+        <input name="qq" id="qq" class="im_account" type="text">
+      </fieldset>
     </form>
     <button id="edit_contact">edit</button>
-    
+
   </div>
   <br>
+
+  <button id="import_vcf">import</button>
+  <button id="export_vcf">export</button>
+
   <button id='add_contact'>add contact</button>
   <button id="sync_contact" value="synchronize contact">
     synchronize contact
   </button>
   <br>
+
 
   <!-- <input type="text" id="searchTextbox" placeholder="Search Contact"> -->
   <div id="contact_area">
@@ -76,14 +82,17 @@
     <button id="next_page">next page</button>
     <button id="last_page">last page</button>
   </div>
-  
+
 
 
   <br>
-  <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
   <script src="../../dist/lib/jquery.min.js" type="text/javascript"></script>
   <script src="../../dist/render/contact.js" type="text/javascript"></script>
-  <script>if (window.module) module = window.module;</script>
+  <script>
+    if (window.module) module = window.module
+    
+  </script>
 </body>
 
 </html>
